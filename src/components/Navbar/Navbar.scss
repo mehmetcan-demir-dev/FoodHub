@@ -1,0 +1,56 @@
+@import "../../index.scss";
+.navbar {
+  height: 55px;
+  box-shadow: 0 3px 6px var(--shadow-color);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 998;
+
+  .logo {
+    font-size: 1.2em;
+    font-weight: bolder;
+    color: var(--primary-color);
+    text-shadow: 0 1px 3px var(--shadow-color);
+    span {
+      font-size: 0.7em;
+    }
+  }
+
+  .nav-links {
+    a {
+      margin-left: 1em;
+      color: var(--text-light);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      position: relative;
+      font-size: 0.9em;
+      &::before {
+        content: "";
+        display: inline-block;
+        height: 5px;
+        width: 100%;
+        background-color: var(--primary-color);
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        transform: scaleX(0);
+        transition: getAnimationDuration(0.2s) ease-in-out;
+      }
+      &:hover {
+        &::before {
+          transform: scaleX(1);
+        }
+      }
+      &.active {
+        color: var(--primary-color);
+        font-weight: bold;
+      }
+    }
+  }
+}
